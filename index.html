@@ -29,16 +29,23 @@
     <main class="row">
       <section class="section-container col-md-3">
         <h2>Search for a City:</h2>
-        <input type="text" placeholder="Search.." class="search-input" />
-        <button class="search-btn">Search</button>
+        <input
+          type="text"
+          placeholder="Search.."
+          class="search-input"
+          id="search-input"
+        />
+        <button class="search-btn" id="search-btn">Search</button>
       </section>
       <section class="main-container col-md-9">
-        <div class="weather-div"></div>
-        <div class="forecast-div"></div>
+        <div class="weather-div" id="weather-div"></div>
+        <div class="forecast-div" id="forecast-div"></div>
       </section>
     </main>
     <!--link to jquery library-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--link to moment.js library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <!--Link to local js file-->
     <script src="./assets/js/script.js"></script>
   </body>
