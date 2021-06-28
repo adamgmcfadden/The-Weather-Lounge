@@ -4,8 +4,42 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Fix live reload issue-->
     <link rel="shortcut icon" href="#" />
-    <title>Weather App Challenge</title>
+    <!--link to bootstrap CDN-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <!--Link to Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@900&family=Raleway:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <!--Link to local CSS stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Weather Dashboard</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>Weather Dashboard</h1>
+    </header>
+    <main class="row">
+      <section class="section-container col-md-3">
+        <h2>Search for a City:</h2>
+        <input type="text" placeholder="Search.." class="search-input" />
+        <button class="search-btn">Search</button>
+      </section>
+      <section class="main-container col-md-9">
+        <div class="weather-div"></div>
+        <div class="forecast-div"></div>
+      </section>
+    </main>
+    <!--link to jquery library-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!--Link to local js file-->
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>

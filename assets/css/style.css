@@ -1,0 +1,78 @@
+/*------------
+GLOBAL STYLING 
+------------*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*-------------------
+HEADER STYLING STARTS
+-------------------*/
+header {
+  padding-top: 2px;
+  text-align: center;
+  /*custom google font*/
+  font-family: "Raleway", sans-serif;
+  background-color: #52a5f1;
+  background-image: linear-gradient(
+    45deg,
+    #52a5f1 0%,
+    #2669a8 52%,
+    #042849 90%
+  );
+  color: white;
+  height: 60px;
+}
+
+/*-------------------
+HEADER STYLING ENDS
+-------------------*/
+
+/*------------------------
+LEFT COLUMN STYLING STARTS
+------------------------*/
+/*styling for all h2 text on webpage*/
+h2 {
+  margin: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+/*Input bar styling*/
+input {
+  margin: 0 10px 10px 10px;
+  width: 100%;
+  border: solid 1px;
+  align-items: center;
+  height: 40px;
+  border-radius: 3px;
+}
+
+/*Search button styling*/
+.search-btn {
+  margin: 0 10px 10px 10px;
+  width: 100%;
+  background-color: #52a5f1;
+  background-image: linear-gradient(45deg, #52a5f1 0%, #2669a8 90%);
+  color: white;
+  text-align: center;
+  align-items: center;
+  border: none;
+  height: 28px;
+  border-radius: 5px;
+}
+
+/*---------------------
+LEFT COLUMN STYLING END
+----------------------*/
+
+/*-------------------------
+RIGHT COLUMN STYLING STARTS
+-------------------------*/
+.main-container {
+  margin-top: 18px;
+  font-family: "Lato", sans-serif;
+}
