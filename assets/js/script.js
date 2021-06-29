@@ -9,12 +9,17 @@ var apiKey = "&appid=20e4aa0aac33df74711bb16dd0d7a2b9";
 
 //history of cities searched
 var cityHistory = [];
+var distinctCities = {};
 //search button on click
 $("#search-btn").on("click", function (event) {
   event.preventDefault();
   //push input value to array
   var cityName = $("#search-input").val();
   cityHistory.push(cityName);
+  for (let i of cityHistory) {
+    distinctCities[i] = true;
+  }
+  saveSearches();
   //fetch request for current weather  by city name (using only for lat and lon to search in onecall endpoint)
   fetch(currentEndPoint + "q=" + cityName + "&units=metric" + apiKey)
     //convert response to JSON
@@ -215,3 +220,10 @@ $("#search-btn").on("click", function (event) {
         });
     });
 });
+
+var saveSearches = function () {
+  console.log(cityHistory);
+  console.log(distinctCities);
+  let cityKeys = Object.keys(distinctCities);
+  console.log(cityKeys);
+};
