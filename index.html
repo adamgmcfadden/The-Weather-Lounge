@@ -24,9 +24,11 @@
   </head>
   <body>
     <header>
+      <!--header/jumbotron-->
       <h1>Weather Dashboard</h1>
     </header>
     <main class="row">
+      <!--left column - search and history-->
       <section class="section-container col-md-3">
         <h2>Search for a City:</h2>
         <input
@@ -37,8 +39,11 @@
         />
         <button class="search-btn" id="search-btn">Search</button>
       </section>
+      <!--right column - all weather information here-->
       <section class="main-container col-md-9">
+        <!--current weather section-->
         <div class="weather-div" id="weather-div"></div>
+        <!--forecasted weather section-->
         <div class="forecast-div" id="forecast-div"></div>
       </section>
     </main>

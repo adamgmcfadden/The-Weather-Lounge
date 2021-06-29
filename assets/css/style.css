@@ -13,8 +13,7 @@ HEADER STYLING STARTS
 header {
   padding-top: 2px;
   text-align: center;
-  /*custom google font*/
-  font-family: "Raleway", sans-serif;
+  height: 60px;
   background-color: #52a5f1;
   background-image: linear-gradient(
     45deg,
@@ -22,8 +21,9 @@ header {
     #2669a8 52%,
     #042849 90%
   );
+  /*custom google font*/
+  font-family: "Raleway", sans-serif;
   color: white;
-  height: 60px;
 }
 
 /*-------------------
@@ -37,18 +37,18 @@ LEFT COLUMN STYLING STARTS
 h2 {
   margin: 10px;
   font-family: "Lato", sans-serif;
-  font-weight: bolder;
   font-size: 25px;
+  font-weight: bolder;
 }
 
 /*Input bar styling*/
 input {
   margin: 0 10px 10px 10px;
-  width: 100%;
   border: solid 1px;
+  border-radius: 3px;
   align-items: center;
   height: 40px;
-  border-radius: 3px;
+  width: 100%;
 }
 
 /*Search button styling*/
@@ -72,19 +72,96 @@ LEFT COLUMN STYLING END
 /*-------------------------
 RIGHT COLUMN STYLING STARTS
 -------------------------*/
+/*PARENT ELEMENT FOR ALL CONTENT ON RIGHT SIDE OF SCREEN*/
 .main-container {
   margin-top: 18px;
   font-family: "Lato", sans-serif;
 }
 
+/*styling for all h3 text*/
 h3 {
   margin-top: 10px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15px;
 }
 
+/*styling for current weather icon*/
 .icon {
   margin-top: 5px;
   height: 60%;
   width: auto;
 }
+
+/*-------UV CONDITION STYLING STARTS-------*/
+.favourable {
+  background-color: rgb(0, 148, 0);
+  color: white;
+}
+
+.moderate {
+  background-color: rgb(255, 166, 0);
+  color: white;
+}
+
+.high {
+  background-color: rgb(255, 81, 0);
+  color: white;
+}
+.severe {
+  background-color: rgb(143, 2, 2);
+  color: white;
+}
+
+.extreme {
+  background-color: rgb(177, 8, 219);
+  color: white;
+}
+/*-------UV CONDITION STYLING STARTS-------*/
+
+/*----STYLING FOR 5 MONTH FORECAST SECTION STARTS-----*/
+/*5 day forecast title*/
+.forecast-title {
+  font-size: 20px;
+}
+
+/*cards parent element*/
+.card-container {
+  margin-top: 10px;
+  margin-left: -35px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*Cards styling*/
+.card-style {
+  padding-left: 0;
+  width: 153px;
+  height: 200px;
+  border-radius: 0;
+  background-color: #042849;
+  color: white;
+}
+
+/*styling for date on cards*/
+.card-date {
+  padding-top: 5px;
+  font-size: 17px;
+}
+
+/*styling for weather icon on cards*/
+.icon-card {
+  margin: -10px 0 5px;
+  height: 50px;
+  width: auto;
+}
+
+/*styling for text all other text on cards*/
+.card-text {
+  margin: -2px 0 10px 5px;
+  padding-bottom: 10px;
+}
+/*----STYLING FOR 5 MONTH FORECAST SECTION STARTS-----*/
+
+/*-------------------------
+RIGHT COLUMN STYLING ENDS
+-------------------------*/
