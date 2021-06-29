@@ -40,6 +40,9 @@ $("#search-btn").on("click", function (event) {
         .then(function (newResponse) {
           console.log(newResponse);
 
+          /*---------------------
+          CURRENT WEATHER SECTION
+          ---------------------*/
           //reference weather-div id
           var currentWeatherDiv = $("#weather-div")
             .addClass("row border border-dark ml-1")
@@ -70,27 +73,27 @@ $("#search-btn").on("click", function (event) {
           //append <h2> and <img> to parent <div>
           currentWeatherDiv.append(currentWeatherEl, iconImg);
 
-          //create <h3> element to hold current information on selected city
+          //create <h3> element to hold current temperature
           var currentTemp = $("<h3></h3>").text(
             "Temp: " + newResponse.current.temp + "°C"
           );
 
-          //create <h3> element to hold current information on selected city
+          //create <h3> element to hold current wind speed
           var currentWindSpeed = $("<h3></h3>").text(
             "Wind: " +
               Math.round(newResponse.current.wind_speed * 3.6 * 100) / 100 +
               " km/h"
           );
 
-          //create <h3> element to hold current information on selected city
+          //create <h3> element to hold current humidity
           var currentHumidity = $("<h3></h3>").text(
             "Humidity: " + newResponse.current.humidity + " %"
           );
 
-          //create <h3> element to hold current information on selected city
+          //create <h3> element to hold current UV index
           var currentUviIndex = $("<h3></h3>").text("UV Index: ");
 
-          //create span element to hold uv index
+          //create span inside h3 element to hold uv index data
           var uvSpan = $("<span></span>")
             .text(newResponse.current.uvi)
             .addClass("badge badge-pill");
@@ -125,23 +128,30 @@ $("#search-btn").on("click", function (event) {
             currentUviIndex
           );
 
-          //-------------------------------------------
-          //reference forecasted time element
+          /*---------------------
+          forecasted time section
+          ---------------------*/
+          //reference forecasted time element in html file
           var forecastWeatherDiv = $("#forecast-div");
+          //create h2 element for 5 day forecast title
           var forecastWeatherEl = $("<h2></h2>")
             .addClass("forecast-title")
             .text("5-Day Forecast:");
 
+          //append title to parent element
           forecastWeatherDiv.append(forecastWeatherEl);
 
-          var cardEl = $("<div></div>").addClass("row card-container");
+          //create div to hold all card elements
+          var cardDiv = $("<div></div>").addClass("row card-container");
 
-          forecastWeatherEl.append(cardEl);
+          //append div to forecast title
+          forecastWeatherEl.append(cardDiv);
 
+          //index 0 is current weather information, so to start on tomorrow, need index 1
           var currentIndexNumber = 1;
           for (let i = currentIndexNumber; i <= 5; i++) {
             //create card
-            var cardDiv1 = $("<div></div>").addClass("card-style");
+            var cardEl = $("<div></div>").addClass("card-style");
             // apply correct time offset
             if (Math.sign(newResponse.timezone_offset) === -1) {
               var date = moment(
@@ -156,9 +166,9 @@ $("#search-btn").on("click", function (event) {
             }
 
             //create date element at top of card
-            var cardDate1 = $("<h2></h2>").addClass("card-date").text(date);
+            var cardDate = $("<h2></h2>").addClass("card-date").text(date);
             //create icon image inside card
-            var cardIcon1 = $("<img></img")
+            var cardIcon = $("<img></img")
               .attr(
                 "src",
                 "http://openweathermap.org/img/w/" +
@@ -167,11 +177,12 @@ $("#search-btn").on("click", function (event) {
               )
               .addClass("icon-card");
 
-            var forecastTemp1 = $("<h3></h3>")
+            //create <h3> element to hold forecasted temperature  (used max temperature)
+            var forecastTemp = $("<h3></h3>")
               .text("Temp: " + newResponse.daily[i].temp.max + "°C")
               .addClass("card-text");
 
-            //create <h3> element to hold current information on selected city
+            //create <h3> element to hold forecasted wind speed
             var forecastWindSpeed = $("<h3></h3>")
               .text(
                 "Wind: " +
@@ -181,20 +192,24 @@ $("#search-btn").on("click", function (event) {
               )
               .addClass("card-text");
 
-            //create <h3> element to hold current information on selected city
+            //create <h3> element to hold forecasted humidity
             var forecastHumidity = $("<h3></h3>")
               .text("Humidity: " + newResponse.daily[i].humidity + " %")
               .addClass("card-text");
 
-            cardDiv1.append(
-              cardDate1,
-              cardIcon1,
-              forecastTemp1,
+            //append card items to card element
+            cardEl.append(
+              cardDate,
+              cardIcon,
+              forecastTemp,
               forecastWindSpeed,
               forecastHumidity
             );
 
-            cardEl.append(cardDiv1);
+            //append card el to card div
+            cardDiv.append(cardEl);
+
+            //increase index number to create next card
             currentIndexNumber++;
           }
         });
