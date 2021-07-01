@@ -115,7 +115,6 @@ h3 {
 
 /*styling for current weather icon*/
 .icon {
-  margin-top: 5px;
   height: 60%;
   width: auto;
 }
@@ -146,6 +145,46 @@ h3 {
 }
 /*-------UV CONDITION STYLING STARTS-------*/
 
+.index-bar-div {
+  justify-content: flex-end;
+  margin-right: -113px;
+}
+
+.uv-legend-title {
+  margin-right: 135px;
+  text-align: right;
+  font-size: 22px;
+}
+
+.uv-color0 {
+  padding: 2px 8px 2px 8px;
+  background-color: rgb(0, 148, 0);
+  color: white;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.uv-color1 {
+  padding: 2px 8px 2px 8px;
+  background-color: rgb(255, 166, 0);
+  color: white;
+}
+.uv-color2 {
+  padding: 2px 8px 2px 8px;
+  background-color: rgb(255, 81, 0);
+  color: white;
+}
+.uv-color3 {
+  padding: 2px 8px 2px 8px;
+  background-color: rgb(143, 2, 2);
+  color: white;
+}
+.uv-color4 {
+  padding: 2px 8px 2px 8px;
+  background-color: rgb(177, 8, 219);
+  color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
 /*----STYLING FOR 5 MONTH FORECAST SECTION STARTS-----*/
 /*5 day forecast title*/
 .forecast-title {

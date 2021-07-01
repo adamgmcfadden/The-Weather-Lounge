@@ -85,7 +85,6 @@ var loadHistory = function () {
                 /*---------------------
                 CURRENT WEATHER SECTION
                ---------------------*/
-
                 //reference weather-div id
                 var currentWeatherDiv = $("#weather-div")
                   .addClass("row border border-dark ml-1")
@@ -100,7 +99,12 @@ var loadHistory = function () {
 
                 // create <h2> element to hold City name and date
                 var currentWeatherEl = $("<h2></h2>").text(
-                  response.name + " (" + date + ")"
+                  response.name +
+                    ", " +
+                    response.sys.country +
+                    " (" +
+                    date +
+                    ")"
                 );
                 // create icon image
                 var iconImg = $("<img></img>")
@@ -139,6 +143,7 @@ var loadHistory = function () {
                 var uvSpan = $("<span></span>")
                   .text(newResponse.current.uvi)
                   .addClass("badge badge-pill");
+
                 //append span to UVI details
                 currentUviIndex.append(uvSpan);
 
@@ -256,6 +261,29 @@ var loadHistory = function () {
                   //increase index number to create next card
                   currentIndexNumber++;
                 }
+                var indexDiv = $("#uv-legend");
+                var indexTitle = $("<h2></h2>")
+                  .text("UV Index Legend")
+                  .addClass("uv-legend-title");
+
+                var barDiv = $("<div></div>").addClass("row index-bar-div");
+                indexTitle.append(barDiv);
+                indexDiv.append(indexTitle);
+                var indexArray = [
+                  "Favourable",
+                  "Moderate",
+                  "Severe",
+                  "Very Severe",
+                  "Extreme",
+                ];
+                let counter = 0;
+                for (let i = counter; i < indexArray.length; i++) {
+                  var uvIndexLegend = $("<h3></h3>")
+                    .addClass("uv-color" + i)
+                    .text(indexArray[i]);
+                  counter++;
+                  barDiv.append(uvIndexLegend);
+                }
               });
           });
       });
@@ -311,7 +339,7 @@ var createDisplayFunc = function (cityName) {
           );
           // create <h2> element to hold City name and date
           var currentWeatherEl = $("<h2></h2>").text(
-            response.name + " (" + date + ")"
+            response.name + ", " + response.sys.country + " (" + date + ")"
           );
           // create icon image
           var iconImg = $("<img></img>")
@@ -459,6 +487,29 @@ var createDisplayFunc = function (cityName) {
 
             //increase index number to create next card
             currentIndexNumber++;
+          }
+          var indexDiv = $("#uv-legend");
+          var indexTitle = $("<h2></h2>")
+            .text("UV Index Legend")
+            .addClass("uv-legend-title");
+
+          var barDiv = $("<div></div>").addClass("row index-bar-div");
+          indexTitle.append(barDiv);
+          indexDiv.append(indexTitle);
+          var indexArray = [
+            "Favourable",
+            "Moderate",
+            "Severe",
+            "Very Severe",
+            "Extreme",
+          ];
+          let counter = 0;
+          for (let i = counter; i < indexArray.length; i++) {
+            var uvIndexLegend = $("<h3></h3>")
+              .addClass("uv-color" + i)
+              .text(indexArray[i]);
+            counter++;
+            barDiv.append(uvIndexLegend);
           }
         });
     });
