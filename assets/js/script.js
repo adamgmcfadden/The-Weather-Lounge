@@ -35,15 +35,15 @@ $("#search-btn").on("click", function (event) {
 var saveSearches = function () {
   let cityOnce = Object.keys(distinctCities);
   for (let i = 0; i < cityOnce.length; i++) {
-    localStorage.setItem(i, cityOnce[i]);
+    localStorage.setItem(cityOnce[i], i);
   }
 };
 
-//got through localStorage and generate history buttons
-
+//go through localStorage ,generate history buttons make fetch requests using stored info
 var loadHistory = function () {
-  var cityNameUsed = Object.values(localStorage);
+  var cityNameUsed = Object.keys(localStorage);
 
+  //generate all history buttons
   let buttonIndexNumber = 0;
   for (let i = buttonIndexNumber; i < cityNameUsed.length; i++) {
     var historyEl = $("#history").addClass("history-btn-container");
@@ -51,9 +51,11 @@ var loadHistory = function () {
       .text(cityNameUsed[i])
       .addClass("history-btn")
       .on("click", function () {
+        //remove existing content (reset)
         var currentWeatherDiv = $("#weather-div").empty();
         var forecastWeatherDiv = $("#forecast-div").empty();
-        //fetch request for current weather  by city name (using only for lat and lon to search in onecall endpoint)
+        /*---REFACTORING OPPORTUNITY - call function instead if i can find way to change how cityName is called search btn and history btn---*/
+        //fetch request for current weather  by city name (from localStorage)
         fetch(
           currentEndPoint + "q=" + cityNameUsed[i] + "&units=metric" + apiKey
         )
@@ -81,26 +83,21 @@ var loadHistory = function () {
                 console.log(newResponse);
 
                 /*---------------------
-          CURRENT WEATHER SECTION
-          ---------------------*/
+                CURRENT WEATHER SECTION
+               ---------------------*/
 
                 //reference weather-div id
                 var currentWeatherDiv = $("#weather-div")
                   .addClass("row border border-dark ml-1")
                   .css("width", "97%");
 
-                //check if positive or negative timeZone offset
-                if (Math.sign(newResponse.timezone_offset) === -1) {
-                  var date = moment(
-                    newResponse.current.dt * 1000 -
-                      newResponse.timezone_offset * 1000
-                  ).format("MM/DD/YYYY");
-                } else {
-                  var date = moment(
-                    newResponse.current.dt * 1000 +
-                      newResponse.timezone_offset * 1000
-                  ).format("MM/DD/YYYY");
-                }
+                // set date based on returned timestamp and timezone
+                var date = new Date(
+                  newResponse.current.dt * 1000
+                ).toLocaleDateString("en-US", {
+                  timeZone: `${newResponse.timezone}`,
+                });
+
                 // create <h2> element to hold City name and date
                 var currentWeatherEl = $("<h2></h2>").text(
                   response.name + " (" + date + ")"
@@ -164,7 +161,7 @@ var loadHistory = function () {
                   newResponse.current.uvi > 7 &&
                   newResponse.current.uvi <= 10
                 ) {
-                  uvSpan("severe");
+                  uvSpan.addClass("severe");
                 } else {
                   uvSpan.addClass("extreme");
                 }
@@ -200,18 +197,13 @@ var loadHistory = function () {
                 for (let i = currentIndexNumber; i <= 5; i++) {
                   //create card
                   var cardEl = $("<div></div>").addClass("card-style");
-                  // apply correct time offset
-                  if (Math.sign(newResponse.timezone_offset) === -1) {
-                    var date = moment(
-                      newResponse.daily[i].dt * 1000 -
-                        newResponse.timezone_offset * 1000
-                    ).format("MM/DD/YYYY");
-                  } else {
-                    var date = moment(
-                      newResponse.daily[i].dt * 1000 +
-                        newResponse.timezone_offset * 1000
-                    ).format("MM/DD/YYYY");
-                  }
+
+                  // set date based on returned timestamp and timezone
+                  var date = new Date(
+                    newResponse.daily[i].dt * 1000
+                  ).toLocaleDateString("en-US", {
+                    timeZone: `${newResponse.timezone}`,
+                  });
 
                   //create date element at top of card
                   var cardDate = $("<h2></h2>")
@@ -310,16 +302,13 @@ var createDisplayFunc = function (cityName) {
             .addClass("row border border-dark ml-1")
             .css("width", "97%");
 
-          //check if positive or negative timeZone offset
-          if (Math.sign(newResponse.timezone_offset) === -1) {
-            var date = moment(
-              newResponse.current.dt * 1000 - newResponse.timezone_offset * 1000
-            ).format("MM/DD/YYYY");
-          } else {
-            var date = moment(
-              newResponse.current.dt * 1000 + newResponse.timezone_offset * 1000
-            ).format("MM/DD/YYYY");
-          }
+          // set date based on returned timestamp and timezone
+          var date = new Date(newResponse.current.dt * 1000).toLocaleDateString(
+            "en-US",
+            {
+              timeZone: `${newResponse.timezone}`,
+            }
+          );
           // create <h2> element to hold City name and date
           var currentWeatherEl = $("<h2></h2>").text(
             response.name + " (" + date + ")"
@@ -379,7 +368,7 @@ var createDisplayFunc = function (cityName) {
             newResponse.current.uvi > 7 &&
             newResponse.current.uvi <= 10
           ) {
-            uvSpan("severe");
+            uvSpan.addClass("severe");
           } else {
             uvSpan.addClass("extreme");
           }
@@ -416,17 +405,13 @@ var createDisplayFunc = function (cityName) {
             //create card
             var cardEl = $("<div></div>").addClass("card-style");
             // apply correct time offset
-            if (Math.sign(newResponse.timezone_offset) === -1) {
-              var date = moment(
-                newResponse.daily[i].dt * 1000 -
-                  newResponse.timezone_offset * 1000
-              ).format("MM/DD/YYYY");
-            } else {
-              var date = moment(
-                newResponse.daily[i].dt * 1000 +
-                  newResponse.timezone_offset * 1000
-              ).format("MM/DD/YYYY");
-            }
+
+            // set date based on returned timestamp and timezone
+            var date = new Date(
+              newResponse.daily[i].dt * 1000
+            ).toLocaleDateString("en-US", {
+              timeZone: `${newResponse.timezone}`,
+            });
 
             //create date element at top of card
             var cardDate = $("<h2></h2>").addClass("card-date").text(date);
