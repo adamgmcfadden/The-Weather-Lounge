@@ -48,7 +48,7 @@ input {
   border-radius: 3px;
   align-items: center;
   height: 40px;
-  width: 100%;
+  width: 95%;
 }
 
 /*Search button styling*/
@@ -62,7 +62,7 @@ input {
   background-image: linear-gradient(45deg, #52a5f1 0%, #2669a8 90%);
   color: white;
   height: 28px;
-  width: 100%;
+  width: 95%;
 }
 
 /*history button parent el*/
@@ -70,7 +70,7 @@ input {
   margin-left: 10px;
   padding-top: 10px;
   border-top: solid 1px black;
-  width: 100%;
+  width: 95%;
 }
 
 /*history button styling*/
