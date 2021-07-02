@@ -179,8 +179,8 @@ var loadHistory = function () {
                 );
 
                 /*---------------------
-          forecasted time section
-          ---------------------*/
+                forecasted time section
+                ---------------------*/
                 //reference forecasted time element in html file
                 var forecastWeatherDiv = $("#forecast-div");
                 //create h2 element for 5 day forecast title
@@ -261,24 +261,34 @@ var loadHistory = function () {
                   //increase index number to create next card
                   currentIndexNumber++;
                 }
+                //reference index-legend parent el
                 var indexDiv = $("#uv-legend");
+                //empty element to reset screen
+                indexDiv.empty();
+                //UV index-legend title
                 var indexTitle = $("<h2></h2>")
                   .text("UV Index Legend")
                   .addClass("uv-legend-title");
 
+                // create index-legend bar
                 var barDiv = $("<div></div>").addClass("row index-bar-div");
                 indexTitle.append(barDiv);
                 indexDiv.append(indexTitle);
+
+                //array with uv index categories
                 var indexArray = [
                   "Favourable",
                   "Moderate",
+                  "High",
                   "Severe",
-                  "Very Severe",
                   "Extreme",
                 ];
+
+                //create each section of index-legend bar
                 let counter = 0;
                 for (let i = counter; i < indexArray.length; i++) {
                   var uvIndexLegend = $("<h3></h3>")
+                    //add unique class to each for styling
                     .addClass("uv-color" + i)
                     .text(indexArray[i]);
                   counter++;
@@ -293,8 +303,8 @@ var loadHistory = function () {
 };
 loadHistory();
 
-//function to display required info when search button is pressed
-var createDisplayFunc = function (cityName) {
+//function to display required info when **search button is pressed** - would like to eliminate writing it twice in future - but for now it works***
+var createDisplayFunc = function () {
   var cityName = $("#search-input").val();
   //fetch request for current weather  by city name (using only for lat and lon to search in onecall endpoint)
   fetch(currentEndPoint + "q=" + cityName + "&units=metric" + apiKey)
@@ -488,24 +498,35 @@ var createDisplayFunc = function (cityName) {
             //increase index number to create next card
             currentIndexNumber++;
           }
+
+          //reference index-legend parent el
           var indexDiv = $("#uv-legend");
+          //empty element to reset screen
+          indexDiv.empty();
+          //UV index-legend title
           var indexTitle = $("<h2></h2>")
             .text("UV Index Legend")
             .addClass("uv-legend-title");
 
+          // create index-legend bar
           var barDiv = $("<div></div>").addClass("row index-bar-div");
           indexTitle.append(barDiv);
           indexDiv.append(indexTitle);
+
+          //array with uv index categories
           var indexArray = [
             "Favourable",
             "Moderate",
+            "High",
             "Severe",
-            "Very Severe",
             "Extreme",
           ];
+
+          //create each section of index-legend bar
           let counter = 0;
           for (let i = counter; i < indexArray.length; i++) {
             var uvIndexLegend = $("<h3></h3>")
+              //add unique class to each for styling
               .addClass("uv-color" + i)
               .text(indexArray[i]);
             counter++;
