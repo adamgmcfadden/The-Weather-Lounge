@@ -20,7 +20,9 @@ $("#search-btn").on("click", function (event) {
   var historyEl = $("#history").empty();
   //push input value to array
   var cityName = $("#search-input").val();
-  cityHistory.push(cityName);
+  var cityNameLowerCase = cityName.toLowerCase();
+  cityHistory.push(cityNameLowerCase);
+  console.log(cityHistory);
   for (let i of cityHistory) {
     distinctCities[i] = true;
   }
@@ -46,9 +48,16 @@ var loadHistory = function () {
   //generate all history buttons
   let buttonIndexNumber = 0;
   for (let i = buttonIndexNumber; i < cityNameUsed.length; i++) {
+    //CAPITALIZE FIRST LETTER OF STORED NAME
+    var cityNameFirstLetterUpper = cityNameUsed[i].charAt(0).toUpperCase();
+    //REMOVE FIRST LETTER OF STORED NAME
+    var cityNameNoFirstLetter = cityNameUsed[i].slice(1);
+    //CONCATENATE FOR COMPLETE NAME
+    var newCityName = cityNameFirstLetterUpper + cityNameNoFirstLetter;
+    console.log(newCityName);
     var historyEl = $("#history").addClass("history-btn-container");
     var historyBtn = $("<button></button>")
-      .text(cityNameUsed[i])
+      .text(newCityName)
       .addClass("history-btn")
       .on("click", function () {
         //remove existing content (reset)
