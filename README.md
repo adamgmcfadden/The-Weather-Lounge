@@ -1,4 +1,4 @@
-# Weather Dashboard
+# The Weather Lounge
 
 ## Weather App Challenge
 
