@@ -33,7 +33,7 @@
 
 ## Website
 
-https://adamgmcfadden.github.io/weatherDashboard-alpha/
+https://adamgmcfadden.github.io/The-Weather-Lounge/
 
 ## Contribution
 
