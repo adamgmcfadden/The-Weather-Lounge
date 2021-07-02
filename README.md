@@ -31,6 +31,8 @@
 
 ## Screensot
 
+![screenshot](https://user-images.githubusercontent.com/83710803/124283893-6d0af780-db1a-11eb-86a2-e912d947d9ec.png)
+
 ## Website
 
 https://adamgmcfadden.github.io/The-Weather-Lounge/
