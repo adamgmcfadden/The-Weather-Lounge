@@ -1,18 +1,18 @@
 # The Weather Lounge
 
-## Weather App Challenge
+## Website
 
-- Project - Coding Challenge #6 - Weather Dashboard
+https://adamgmcfadden.github.io/The-Weather-Lounge/
 
-## Purpose
+## Description
 
-- A website that allows users to search current and upcoming weather conditions in any city around the world.
+A website that allows users to search current and upcoming weather conditions in any city around the world.
 
-## Built with
+#### Languages Used: 
 
-- HTML
-- CSS
-- JavaScript
+![Language](https://img.shields.io/badge/HTML-green.svg "Language Badge")
+![Language](https://img.shields.io/badge/CSS-blue.svg "Language Badge")
+![Language](https://img.shields.io/badge/JavaScript-red.svg "Language Badge")
 
 ## List of API libraries referenced:
 
@@ -29,23 +29,25 @@
 
   - OpenWeather
 
-## Screensot
+## Usage
+Click on provided link to launch the page. Type in name of desired city in the search bar. Search history will persist as clickable buttons to easily reload the same information. 
+
+## Screenshot
 
 ![screenshot](https://user-images.githubusercontent.com/83710803/124283893-6d0af780-db1a-11eb-86a2-e912d947d9ec.png)
 
-## Website
+## Credit
 
-https://adamgmcfadden.github.io/The-Weather-Lounge/
-
-## Contribution
-
-- Mock up provided by Carleton University
+- Project idea and mock up provided by Carleton University
 - All code provided by Adam Girard-McFadden
 
-## Application Description
+## Contributing
 
-- When the user searches a city using the input field they will be presented with current and future weather condidions for that city.
-- The user will be presented with the city name, the date, an icon representation of weather condidions, the temperature, the humidity, the wind speed and the UV index.
-- When the user views the UV index, they are presented with a color that indicates whether the condition is favourable, moderate or severe.
-- When the user views future weather conditions, they are presented with a 5 day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity.
-- When a city is clicked in the search history, then the current and future weather conditions are loaded up again.
+Other developers may add and update any code at their leisure. For more info, contact me using email address provided below.
+
+## Contact Information
+
+Contact me via my github profile or email address (links below)
+
+- Github Username: [adamgmcfadden](https://github.com/adamgmcfadden)
+- Email address: adam_m_20@hotmail.com
