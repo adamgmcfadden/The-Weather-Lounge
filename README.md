@@ -32,7 +32,7 @@ A website that allows users to search current and upcoming weather conditions in
 ## Usage
 Click on provided link to launch the page. Type in name of desired city in the search bar. Search history will persist as clickable buttons to easily reload the same information. 
 
-## Screenshot
+#### Screenshot
 
 ![screenshot](https://user-images.githubusercontent.com/83710803/124283893-6d0af780-db1a-11eb-86a2-e912d947d9ec.png)
 
